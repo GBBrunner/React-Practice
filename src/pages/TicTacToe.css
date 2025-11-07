@@ -1,0 +1,29 @@
+.box {
+  box-sizing: border-box;
+  border: 2px solid #000;
+  font-size: 5em;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0;
+  line-height: 1;
+}
+#game-board.turn-x .box:empty:hover {
+  background-color: #7aeff6; 
+}
+#game-board.turn-o .box:empty:hover {
+  background-color: #f67a7a;
+}
+#game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  width: max-content;
+  margin: 20px auto;
+}

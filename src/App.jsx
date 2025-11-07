@@ -1,29 +1,24 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import LoginPage from "./pages/LoginPage.jsx";
-import Navbar from './componenets/Navbar.jsx'
+import TicTacToe from './pages/TicTacToe.jsx'
 
 function Home() {
   return (
-    <div style={{ padding: 24 }}>
-      <h1>Welcome</h1>
-      <p>Use the navigation to open the login page.</p>
-    </div>
+  <h1>React Practice</h1>
   )
 }
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Navbar />
-        <main style={{ padding: 24 }}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<LoginPage />} />
-          </Routes>
-        </main>
-      </div>
-    </BrowserRouter>
+  <div className="AppContent">
+      <main style={{ padding: 24 }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/tictactoe" element={<TicTacToe />} />
+        </Routes>
+      </main>
+    </div>
   )
 }
 

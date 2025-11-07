@@ -1,42 +1,52 @@
 import { useState } from 'react'
-import InputField from '../componenets/Login/InputField.jsx'
-import Toggle from '../componenets/Login/Toggle.jsx'
-import SubmitBtn from '../componenets/Login/SubmitBtn.jsx'
+import LoginInputField from './Login/LoginInputField.jsx'
+import SignupInputField from './Login/SignupInputField.jsx'
+import Toggle from './Login/Toggle.jsx'
+import SubmitBtn from './Login/SubmitBtn.jsx'
 import '../App.css'
 
 function LoginPage() {
   const [toggle, setToggle] = useState(0)
+  const [form, setForm] = useState({
+    login: '',
+    password: '',
+    email: '',
+    firstName: '',
+    lastName: '',
+    confirmPassword: ''
+  })
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setForm(prev => ({ ...prev, [name]: value }))
+  }
 
   return (
-      <div>
-        <Toggle label="Login" index={0} active={toggle} onClick={setToggle} />
-        <Toggle label="Sign Up" index={1} active={toggle} onClick={setToggle} />
-        {toggle === 0 ? (
-          <>
-            <InputField label="Login" type="text" placeholder="Enter your login" value=""/>
-            <InputField label="Password" type="password" placeholder="Enter your password" value=""/>
-          </>
-        ) : (
-          <>
-            <InputField label="Email" type="email" placeholder="Enter your email" value=""/>
-            <InputField label="First Name" type="text" placeholder="Enter your first name" value=""/>
-            <InputField label="Last Name" type="text" placeholder="Enter your last name" value=""/>
-            <InputField label="Password" type="password" placeholder="Enter your password" value=""/>
-            <InputField label="Confirm Password" type="password" placeholder="Confirm your password" value=""/>
-          </>
-        )}
-        <SubmitBtn label={toggle === 0 ? "Login" : "Sign Up"} onClick={() => {
-          const login = document.getElementById('Login')?.value || ''
-          const password = document.getElementById('Password')?.value || ''
-          const email = document.getElementById('Email')?.value || ''
-          const firstName = document.getElementById('First Name')?.value || ''
-          const lastName = document.getElementById('Last Name')?.value || ''
-          if (toggle === 0) {
-            console.log("Logging in with", login, password)
-          } else {
-            console.log("Signing up with", email, firstName, lastName, password)
-          }
-        }} />
+      <div className="flex flex-col gap-4 w-96 mx-auto mt-20 p-8 border-2 border-slate-300 rounded-lg shadow-lg bg-white">
+        <div>
+          <Toggle label="Login" index={0} active={toggle} onClick={setToggle} />
+          <Toggle label="Sign Up" index={1} active={toggle} onClick={setToggle} />
+        </div>
+        <div>
+          {toggle === 0 ? (
+            <LoginInputField values={{ login: form.login, password: form.password }} onChange={handleChange} />
+          ) : (
+            <SignupInputField values={{
+              email: form.email,
+              firstName: form.firstName,
+              lastName: form.lastName,
+              password: form.password,
+              confirmPassword: form.confirmPassword
+            }} onChange={handleChange} />
+          )}
+          <SubmitBtn label={toggle === 0 ? "Login" : "Sign Up"} onClick={() => {
+            if (toggle === 0) {
+              console.log("Logging in with", form.login, form.password)
+            } else {
+              console.log("Signing up with", form.email, form.firstName, form.lastName, form.password)
+            }
+          }} />
+        </div>
       </div>
   )
 }

@@ -1,15 +1,18 @@
 import { Link } from 'react-router-dom'
 
+const LinkStyle = "text-slate-900 font-semibold font-bold hover:underline ";
 function Navbar() {
   return (
-    <header style={{ position: 'sticky', top: 0, zIndex: 1000, background: '#ffffff', boxShadow: '0 1px 0 rgba(0,0,0,0.06)' }}>
-      <nav style={{ padding: '12px 16px', display: 'flex', gap: 16, maxWidth: 1100, margin: '0 auto', alignItems: 'center' }}>
-        <Link to="/" style={{ textDecoration: 'none', color: '#111827', fontWeight: 600 }}>
+    <header className="bg-indigo-300 py-16 shadow-sm sticky top-0 z-50 w-full h-20 align-middle justify-between">
+      <nav className="w-full px-6 py-3 flex gap-6 items-center justify-around align-middle text-xl ">
+        <Link to="/" className={LinkStyle}>
           Home
         </Link>
-        {/* Path-based login route */}
-        <Link to="/login" style={{ textDecoration: 'none', color: '#111827', fontWeight: 600 }}>
+        <Link to="/login" className={LinkStyle}>
           Login Page
+        </Link>
+        <Link to="/tictactoe" className={LinkStyle}>
+          Tic Tac Toe
         </Link>
       </nav>
     </header>
