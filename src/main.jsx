@@ -11,6 +11,7 @@ import ProtectedRoute from './layouts/ProtectedRoute.jsx'
 import AuthProvider from './context/AuthContext.jsx'
 import Unauthorized from './pages/Unauthorized.jsx'
 import NotFound from './pages/NotFound.jsx'
+import Stopwatch from './pages/Stopwatch.jsx'
 
 function AppRoutes() {
     // Access currentUser from context; treat string 'guest' as unauthenticated
@@ -19,9 +20,12 @@ function AppRoutes() {
     return (
         <Routes>
             <Route>
-                <Route index element={<AppLayout />} />
-                <Route path="login" element={isGuest ? <Login /> : <Navigate to="/user" replace />} />
+                <Route element={<AppLayout />} >
+                    <Route index  />
+                    <Route path="login" element={isGuest ? <Login /> : <Navigate to="/user" replace />} />
+                </Route>
                 <Route path="user" element={<UserPage />} />
+                <Route path="stopwatch" element={<Stopwatch />} />
                 {/* Protected Routes */}
                 <Route>
                     <Route path="dashboard" element={<Dashboard />} />

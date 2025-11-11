@@ -19,7 +19,7 @@ export default function AppLayout() {
 
             </nav>
             <main>
-                {/* sidebar */}
+                <Outlet />
             </main>
         </div>
     )

@@ -42,7 +42,7 @@ function LoginPage() {
         <div
           className="absolute top-0 left-1/4 h-full bg-blue-400 rounded-lg w-1/4 transition-transform duration-400 ease-in-out"
           style={{
-            transform: `translateX(${toggle === 0 ? '0%' : '85%'})`,
+            transform: `translateX(${toggle === 0 ? '0%' : '83px'})`,
             backgroundColor: toggle === 0 ? '#3b82f6' : '#28b0a2',
             transition: 'transform 400ms ease-in-out, background-color 400ms ease-in-out'
           }}
