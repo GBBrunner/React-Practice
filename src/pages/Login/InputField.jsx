@@ -16,7 +16,7 @@ export default function InputField({ label, type = 'text', placeholder = '', val
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        className="shadow-sm border border-gray-300 rounded-md w-64 py-2 px-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        className="shadow-sm border border-gray-300 rounded-md w-45 py-2 px-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
       />
     </div>
   );

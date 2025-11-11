@@ -14,6 +14,7 @@ function Navbar() {
         <Link to="/tictactoe" className={LinkStyle}>
           Tic Tac Toe
         </Link>
+        
       </nav>
     </header>
   )
